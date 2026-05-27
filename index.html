@@ -5,119 +5,176 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Индивидуальный проект | Русская классика в комиксах</title>
     <style>
-        /* Основные стили и сброс */
+        /* Общие настройки */
         * {
             box-sizing: border-box;
             margin: 0;
             padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
 
         body, html {
             height: 100%;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            color: #ffffff;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            overflow: hidden; /* Скрыть прокрутку */
+            background-color: #121212;
         }
 
-        /* Фоновое изображение комикса */
-        .background-cover {
+        /* КАРТИНКА ПО ЦЕНТРУ И ЗАФИКСИРОВАНА ПРИ СКРОЛЛЕ */
+        .fixed-background {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background-image: url('cover.jpg'); /* Имя вашей картинки */
-            background-size: cover;
-            background-position: center;
-            z-index: -2; /* Убираем назад */
+            background-image: url('cover.jpg'); /* Имя твоей картинки на GitHub */
+            background-repeat: no-repeat;
+            background-position: center center; /* Строго по центру */
+            background-size: contain; /* Картинка адаптируется под экран, не обрезаясь */
+            z-index: -2;
         }
 
-        /* Темная вуаль поверх фона для читаемости текста */
+        /* Затемняющий слой, чтобы белый текст не сливался с картинкой */
         .overlay {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background-color: rgba(0, 0, 0, 0.7); /* Сила затемнения */
+            background: rgba(0, 0, 0, 0.75); /* Плотность темного фона поверх картинки */
             z-index: -1;
         }
 
-        /* Контейнер для текста титульного листа */
-        .wrapper {
+        /* Контейнер со скроллом для контента */
+        .scroll-container {
+            height: 100%;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 60px 20px;
+        }
+
+        /* Прозрачная карточка титульного листа, которая будет уплывать вверх */
+        .content-card {
             max-width: 800px;
-            width: 90%;
-            padding: 20px;
+            width: 100%;
+            text-align: center;
+            /* Создаем искусственную высоту, чтобы сайту было куда листаться вниз */
+            padding-bottom: 300px; 
         }
 
-        /* Оформление официальных заголовков (из фото №1) */
-        h1.collage-name {
-            font-size: 20px;
+        /* Название колледжа */
+        h1.college-name {
+            font-size: 18px;
             font-weight: 800;
             text-transform: uppercase;
-            line-height: 1.4;
-            margin-bottom: 50px;
+            line-height: 1.5;
             color: #d0d0d0;
+            margin-bottom: 120px; /* Большой отступ, чтобы пролистать */
+            letter-spacing: 0.5px;
         }
 
+        /* Тип проекта */
         h2.project-type {
-            font-size: 32px;
+            font-size: 36px;
             font-weight: 800;
             text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-bottom: 40px;
+            letter-spacing: 2px;
+            margin-bottom: 60px;
             color: #ffffff;
+            text-shadow: 0 4px 10px rgba(0,0,0,0.9);
         }
 
-        /* Стили для обычных текстовых блоков */
+        /* Информация о предмете и проекте */
+        .info-section {
+            margin-bottom: 100px;
+        }
+
+        /* Данные студентов и проверяющего */
+        .authors-section {
+            text-align: center;
+            background: rgba(30, 30, 30, 0.6); /* Полупрозрачная подложка для читаемости */
+            padding: 30px;
+            border-radius: 12px;
+            border: 1px solid rgba(255,255,255,0.1);
+            backdrop-filter: blur(5px); /* Легкое размытие под текстом */
+            display: inline-block;
+            max-width: 550px;
+            width: 100%;
+        }
+
         p.info-line {
             font-size: 16px;
-            color: #a0a0a0;
-            margin-bottom: 8px;
+            color: #b0b3b8;
+            margin-bottom: 10px;
+            line-height: 1.4;
         }
 
-        /* Оформление выделенных значений (ФИО и Группа) */
         span.highlight {
             font-weight: 700;
             color: #ffffff;
         }
 
-        /* Разделитель перед ФИО */
-        .spacer {
-            margin-top: 30px;
+        .space-top {
+            margin-top: 20px;
         }
-
     </style>
 </head>
 <body>
 
-    <div class="background-cover"></div>
+    <div class="fixed-background"></div>
     <div class="overlay"></div>
 
-    <div class="wrapper">
-        <h1 class="collage-name">
-            Автономная некоммерческая организация профессиональная образовательная организация
+    <div class="scroll-container">
+        <div class="content-card">
+            
+            <h1 class="college-name">
+                Автономная некоммерческая организация профессиональная образовательная организация
 
-            Московский международный колледж цифровых технологий «Академия ТОР»
-        </h1>
+                Московский международный колледж цифровых технологий «Академия ТОР»
+            </h1>
 
-        <h2 class="project-type">Индивидуальный проект</h2>
+            <h2 class="p
+                roject-type">Индивидуальный проект</h2>
 
-        <p class="info-line">Уровень профессионального образования:</p>
-        <p class="info-line"><span class="highlight">Среднее профессиональное образование</span></p>
+            <div class="info-section">
+                <p class="info-line">Уровень профессионального образования:</p>
+                <p class="info-line" style="margin-bottom: 20px;"><span class="highlight">Среднее профессиональное образование</span></p>
+                
+                <p class="info-line">Учебный предмет: <span class="highlight">Литература</span></p>
+                <p class="info-line">Проект: <span class="highlight">"Русская классика в комиксах"</span></p>
+            </div>
 
-        <p class="info-line">Учебный предмет: <span class="highlight">Литература</span></p>
-        <p class="info-line">Проект: <span class="highlight">"Русская классика в комиксах"</span></p>
+            <div class="authors-section">
+                <p class="info-line">Ученики группы: <span class="highlight">9/1-ИИ-25/1</span></p>
+                <p class="info-line"><span class="highlight">Якунин Даниил Олегович</span></p>
+                
+                <p class="info-line space-top">Руководитель:</p>
+                <p class="info-line"><span class="highlight">Aракчеева Арина Вячеславовна</span></p>
+            </div>
 
-        <p class="info-line spacer">Ученики группы: <span class="highlight">9/1-ИИ-25/1</span></p>
-        <p class="info-line"><span class="highlight">Якунин Даниил Олегович</span></p>
+        </div>
+    </div>
 
-        <p class="info-line spacer">Руководитель:</p>
-        <p class="info-line"><span class="highlight">Аракчеева Арина Вячеславовна</span></p>
+</body>
+</html>roject-type">Индивидуальный проект</h2>
+
+            <div class="info-section">
+                <p class="info-line">Уровень профессионального образования:</p>
+                <p class="info-line" style="margin-bottom: 20px;"><span class="highlight">Среднее профессиональное образование</span></p>
+                
+                <p class="info-line">Учебный предмет: <span class="highlight">Литература</span></p>
+                <p class="info-line">Проект: <span class="highlight">"Русская классика в комиксах"</span></p>
+            </div>
+
+            <div class="authors-section">
+                <p class="info-line">Ученики группы: <span class="highlight">9/1-ИИ-25/1</span></p>
+                <p class="info-line"><span class="highlight">Якунин Даниил Олегович</span></p>
+                
+                <p class="info-line space-top">Руководитель:</p>
+                <p class="info-line"><span class="highlight">Aракчеева Арина Вячеславовна</span></p>
+            </div>
+
+        </div>
     </div>
 
 </body>
